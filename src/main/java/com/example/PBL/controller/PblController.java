@@ -17,10 +17,6 @@ public class PblController {
 	public String admin() {
 		return "AdminDashboard.html";
 	}
-	@RequestMapping("/")
-	public String defaultDashboard() {
-		return "userDashboard.html";
-	}
 	@RequestMapping("userDashboard")
 	public String user() {
 		System.out.println("in userdashboard controller");
