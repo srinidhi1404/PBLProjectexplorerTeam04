@@ -15,12 +15,12 @@ public class PblController {
 
 	@RequestMapping("adminDashboard")
 	public String admin() {
-		return "adminDashboard.html";
+		return "AdminDashboard.html";
 	}
 	@RequestMapping("userDashboard")
 	public String user() {
 		System.out.println("in userdashboard controller");
-		return "usersdashboard.html";
+		return "userdashboard.html";
 	}
 	@RequestMapping("postaproject")
 	public String postaproject() {
