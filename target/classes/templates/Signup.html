@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Signup</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+	<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+
+    <style>
+        .container {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 120vh;
+            background-color: #f6f6f6;
+        }
+        .container-inner {
+            padding: 2rem;
+            border: 1px solid #ccc;
+            border-radius: 15px;
+            background-color: #fff;
+            text-align: left;
+            max-width: 500px; /* Increase the width to your desired value */
+            width: 100%; /* Add this property to ensure the container takes full width */
+        }
+        .button-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 2rem;
+        }
+		.password-field {
+            position: relative;
+        }
+        .password-field input[type='password'] {
+            padding-right: 30px;  /* provides space for the eye icon inside the input field */
+        }
+        .password-toggle {
+            position: absolute;
+            right: 10px;
+            top: 50%;
+            transform: translateY(-50%);
+            cursor: pointer;
+            z-index: 2;  /* ensures the icon stays on top */
+        }
+    </style>
+</head>
+<body>
+<br>
+
+    <div class="container">
+        <div class="container-inner">
+            <div class="text-center mb-4">
+                <h1 class="h1 mb-3 font-weight-medium">Create a new account</h1>
+            </div>
+            <form>
+                <div class="form-group">
+                    <label for="firstname">First Name</label>
+                    <input type="text" class="form-control" id="firstname" placeholder="Enter firstname" required>
+                </div>
+                <div class="form-group">
+                    <label for="lastname">Last Name</label>
+                    <input type="text" class="form-control" id="lastname" placeholder="Enter lastname" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" class="form-control" id="email" placeholder="Enter email" required>
+                </div>
+                 <div class="form-group password-field">
+                    <label for="password">Password</label>
+                    <input type="password" class="form-control" id="password" placeholder="Enter password" required>
+                    <i class="password-toggle fas fa-eye" style="margin-top: 15px;"></i>
+                </div>
+                <div class="form-group password-field">
+                    <label for="confirmPassword">Confirm Password</label>
+                    <input type="password" class="form-control" id="confirmPassword" placeholder="Confirm password" required>
+                    <i class="password-toggle fas fa-eye" style="margin-top: 15px;"></i>
+                </div>
+                <div class="button-container">
+                    <button type="submit" class="btn btn-success">Submit</button>
+                    <a href="file:///C:/Users/s550608/Desktop/GDP1/LoginPage.html?" class="card-link">Back to Login</a>
+                </div>
+            </form>
+        </div>
+    </div>
+<div class="modal fade" id="successModal" tabindex="-1" role="dialog" aria-labelledby="successModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="successModalLabel">Success</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                Submitted Successfully!
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-success" data-dismiss="modal">OK</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    // JavaScript to toggle password visibility:
+    const toggles = document.querySelectorAll('.password-toggle');
+    toggles.forEach(toggle => {
+        toggle.addEventListener('click', (e) => {
+            const input = e.target.previousElementSibling;
+            if (input.type === 'password') {
+                input.type = 'text';
+                e.target.classList.remove('fa-eye');
+                e.target.classList.add('fa-eye-slash');
+            } else {
+                input.type = 'password';
+                e.target.classList.remove('fa-eye-slash');
+                e.target.classList.add('fa-eye');
+            }
+        });
+    });
+
+    // JavaScript to display modal on form submission:
+    const form = document.querySelector('form');
+    form.addEventListener('submit', (e) => {
+        e.preventDefault();  // Prevent form submission
+        $('#successModal').modal('show');
+    });
+</script>
+
+</body>
+</html>
