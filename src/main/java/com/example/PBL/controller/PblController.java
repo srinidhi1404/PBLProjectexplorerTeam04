@@ -19,6 +19,7 @@ public class PblController {
 	}
 	@RequestMapping("userDashboard")
 	public String user() {
+		System.out.println("in userdashboard controller");
 		return "userDashboard.html";
 	}
 	@RequestMapping("postaproject")
