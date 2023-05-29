@@ -58,8 +58,12 @@ public class PblController {
 	public String signup() {
 		return "Signup.html";
 	}
-	@RequestMapping("dashboard")
-	public String index() {
-		return "index.html";
+//	@RequestMapping("dashboard")
+//	public String index() {
+//		return "index.html";
+//	}
+	@RequestMapping("lookings")
+	public String goToLookings() {
+		return "Lookingspage.html";
 	}
 }
