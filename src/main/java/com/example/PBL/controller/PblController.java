@@ -66,4 +66,12 @@ public class PblController {
 	public String goToLookings() {
 		return "Lookingspage.html";
 	}
+	@RequestMapping("/")
+	public String goToDefault() {
+		return "LoginPage.html";
+	}
+	@RequestMapping("postproject")
+	public String postproject() {
+		return "";
+	}
 }
