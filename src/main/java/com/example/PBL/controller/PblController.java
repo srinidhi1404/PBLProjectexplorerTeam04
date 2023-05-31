@@ -3,8 +3,12 @@
  */
 package com.example.PBL.controller;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+
+import com.example.PBL.models.Project;
+import com.example.PBL.repository.ProjectRepository;
 
 /**
  * @author Samyuktha Pandula
@@ -13,6 +17,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @Controller
 public class PblController {
 
+	@Autowired
+	ProjectRepository projectRepo;
+	
+	
 	@RequestMapping("adminDashboard")
 	public String admin() {
 		return "AdminDashboard.html";
@@ -28,6 +36,7 @@ public class PblController {
 	}
 	@RequestMapping("myprojects")
 	public String myprojects() {
+		Iterable<Project> dogList= projectRepo.findAll();
 		return "myprojects.html";
 	}
 	@RequestMapping("userprofile")
@@ -71,7 +80,12 @@ public class PblController {
 		return "LoginPage.html";
 	}
 	@RequestMapping("postproject")
-	public String postproject() {
-		return "";
+	public String postproject(Project project) {
+		projectRepo.save(project);
+		return "myprojects.html";
+	}
+	@RequestMapping("projectmanagement")
+	public String goToProjectManagement() {
+		return "projectmanagement.html";
 	}
 }
